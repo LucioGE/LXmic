@@ -132,3 +132,90 @@ git reset HEAD <nombre del archivo>
 
 git checkout <hash> | <nombre del archivo>
         Restaura una versión anterior de dicho archivo.
+
+git reset HEAD <directorio>
+        Deshace los cambios de todos los archivos del directorio
+        especificado. Retira los archivos del staging area.
+
+git checkout -- <directorio>
+        Restaura los archivos del directorio a su estado anterior.
+
+git branch
+        Muestra las sucursales (branches) del repositorio principal
+        llamado master [1 branch per repository].
+
+git diff <revision-1..revision-2> | <branch-1..branch-2>
+        Muestra las diferencias entre las revisiones o branches
+        especificados.
+
+git checkout <branch-name>
+        Cambia de branch en uso, especificado.
+
+git checkout -b <branch-name>
+        Crea un nuevo branch (sucursal) del branchen uso especificando
+        el nombre del nuevo branch.
+
+git merge <source> <destination>
+        Compromete o fusiona dos branches (sucursales).
+
+git init <project-name>
+        Crea un nuevo repositorio con el nombre del proyecto 
+        especificado.
+
+git init <path/to/project>
+        El directorio especificado se convierte en repositorio.
+
+git init
+        El directorio en que se está trabajando se hace repositorio.
+
+git clone <URL> <nuevo nombre>
+        Clona con todo e historial el repositorio de la URL o el path
+        absoluto 'file://' especificado con el nombre del directorio del
+        origen.
+
+git remote -v
+        Muestra los remotos (URL) de las configuraciones como listas de
+        marcadores del repositorio original.
+
+git remote add <remote-name> <URL>
+        Agrega un repositorio remoto.
+
+git remote rm <remote-name>
+        Remueve el repositorio remoto especificado.
+
+git pull <remote-name> <branch-name>
+        Jala los commit (cambios) del repositorio remoto al branch
+        local especirficado.
+
+git push <remote-name> <branch-name>
+        Actualiza el remoto con los cambios realizados el el branch
+        local.
+
+--  --  Procedimiento a utilizar gitlab de LXMX, repositorio s --  --
+
+-- Git global setup --
+    git config --global user.name "nombre"
+    git config --global user.email "email@host.com"
+
+-- Create a new repository --
+    git clone git@gitlab.com:LXMX/s.git
+    cd s
+    touch README.md
+    git add README.md
+    git commit -m "add README"
+    git push -u origin master
+
+-- Existing folder --
+    cd <existing_folder>
+    git init
+    git remote add origin git@gitlab.com:LXMX/s.git
+    git add .
+    git commit -m "Initial commit"
+    git push -u origin master
+
+-- Existing Git repository --
+    cd <existing_repository>
+    git remote rename <origin> <old-origin>
+    git remote add origin git@gitlab.com:LXMX/s.git
+    git push -u origin --all
+    git push -u origin --tag
