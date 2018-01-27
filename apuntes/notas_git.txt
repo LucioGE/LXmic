@@ -1,0 +1,40 @@
+¿Qué es git?
+Git es un sistema de control de versiones de archivos. Se utiliza tanto
+    en forma local como en forma remota, mediante servidores de la nube
+    tales como github y gitlab, entre otros.
+
+¿Cómo administra los proyectos?
+Al determinar un directorio como repositorio, se genera un archivo que
+    lleva el control de todos los documentos del proyecto creado. Dicho
+    repositorio contiene un archivo '.git' que no debe ser modificado
+    y mucho menos eliminado. En caso de hacerlo, se provocará un error
+    incluso desligar el repositorio.
+
+Un proyecto git está compuesto por dos partes:
+    1. Directorios y archivos creados y editados por uno mismo, que
+       componen al proyecto.
+    2. Información extra que git graba acerca de la historia del
+       proyecto, tales como los cambios de la primer parte.
+
+Git procesa los cambios en dos niveles:
+    staging area. Es el área "virtual" en que se localizan los archivos
+    modificados antes de guardar o cometer los cambios [commit].
+    Se genera un registro de los archivos modificados y quién, cuando y
+    qué cambios se realizaron. En este estado los cambios pueden ser
+    eliminados sin ningun problema.
+
+--  --  COMANDOS COMUNES  --  --
+git status
+        Muestra los archivos que ha sido modificados pero no se ha
+        actualizado el repositorio principal.
+
+git diff <nombre del archivo>
+        Muestra las diferencias del archivo en su último commit y el
+        cambio realizado pero que está en el staging area.
+
+git diff <nombre del directorio>
+        Muestra las diferencias de los archivos contenidos en el
+        directorio especificado y aquellos que están en staging area.
+
+git diff 
+        Muestra todos archivos en staging area con sus diferencias.
