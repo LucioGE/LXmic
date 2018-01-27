@@ -23,6 +23,16 @@ Git procesa los cambios en dos niveles:
     qué cambios se realizaron. En este estado los cambios pueden ser
     eliminados sin ningun problema.
 
+El archivo .gitignore en raíz del repositorio.
+    Es un archivo en el que se le indica a git qué archivos deberá
+    ignorar al cometer, agregar en staging area y el rastreo. Tales
+    como archivos temporales que no se requieren en el proyecto,
+    productos del proyecto que no tienen valor, etc.
+
+--  --  VISUALIZADORES GRÁFICOS DE GIT --  --
+En Windows hay Winmerge y DiffMerge, pero en Rstudio.com utiliza otros.
+
+
 --  --  COMANDOS COMUNES  --  --
 git status
         Muestra los archivos que ha sido modificados pero no se ha
@@ -38,3 +48,87 @@ git diff <nombre del directorio>
 
 git diff 
         Muestra todos archivos en staging area con sus diferencias.
+
+git add <nombre del archivo>
+        Agrega archivo especificado al área de espera [staging area].
+
+git diff -r <nombre del archivo> <path/to/file>
+        [-r] compara con una versión particular"
+        [HEAD] especifica a la versión última cometida.
+
+git commit -m "Mensaje."
+        Para cometer o guardar los cambios realizados a los archivos
+        que ya se encuentran en el staging area. Se agrega un mensaje
+        para que el revisor se entere qué motivo tuvo el commit hecho.
+
+git log
+        Muestra la historia o historial del proyecto. Son logs que
+        contienen quién, cuándo y qué mensaje escribieron de los
+        cambios. Son los registros de los commits realizados al
+        proyecto.
+
+git log <path>
+        Muestra el historial del archivo o directorio especificado.
+        Cuando fueron eliminados o agregados los directorios.
+
+git commit
+	Comete los cambios de los archivos en el staging area pero con
+        un mensaje de plantilla
+
+git show
+        Muestra detalles específicos del commit más reciente. tales como
+        el autor, la fecha y hora, la diferencia del archivo en su
+        versión actual y la inmediata anterior.
+
+git show <primeros dígitos del hash>
+        Los detalles de un commit específico correspondiente a los
+        primeros dígitos del hash.
+
+git show HEAD~1
+        Con HEAD, HEAD~1, HEAD~2,...; lo cual especifica el orden o
+        nivel de actualidad del commit como head con el número.
+
+git annotate <nombre del archivo>
+        Muestra información de commit de acuerdo a cada línea,
+        especificando el autor, numero de línea y cuándo se efectuó.
+        Formato: hash (who | when and time | line #) "contenido actual"
+
+git diff ID1..ID2
+        Muestra las diferencias entre dos commit específicos con el ID.
+
+git diff HEAD~1..HEAD~3
+        Muestra la diferencia entre el estado del repositorio un commit
+        en el pasado y en el estado de tres commits anteriores.
+
+git add <path/to/file>
+        Para que git rastrée algún archivo nuevo o que no se encuentra
+        aún en el repositorio. 'git status' también muestra los archivos
+        que no son rastreados.
+
+git clean -n
+        Muestra la lista de archivos que no se rastrean.
+
+git clean -f
+        Elimina archivos que no estan rastreados.
+
+git config --list | --system | --global | --local
+        list. Muestra la configuración de git.
+        system. Configuración de todos los usuarios del pc.
+        global. Configuración de cada uno de tus proyectos.
+        local. Configuración de un proyecto específico.
+
+git config --global setting.name setting.value
+        Ejemplo del uso de la configuración de todos los proyectos.
+        user.name <nombre del usuario>
+        user.email <correo del usuario>
+
+git checkout --<nombre del archivo>
+        Deshace los cambios que aún no han sido organizados [commit]
+        Regresa al estado antes de realizar los cambios (al commit
+        anterior).
+
+git reset HEAD <nombre del archivo>
+        Deshace cambios al punto de la última organización [commit]
+
+git checkout <hash> | <nombre del archivo>
+        Restaura una versión anterior de dicho archivo.
